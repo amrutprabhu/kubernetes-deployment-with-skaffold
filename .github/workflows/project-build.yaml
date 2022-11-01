@@ -34,6 +34,6 @@ jobs:
 
       - name: Build Docker images with Skaffold
         uses: hiberbee/github-action-skaffold@1.24.0
-        working-directory: ./rest-endpoint-application
         with:
           command: build
+          working-directory: ./rest-endpoint-application
