@@ -7,8 +7,8 @@ on:
   pull_request:
     branches:
       - '*'
-permissions:
-  packages: write
+permissions: write-all
+
 
 jobs:
   verify-project-build:
