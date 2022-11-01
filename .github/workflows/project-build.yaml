@@ -29,9 +29,11 @@ jobs:
         run: mvn --version
 
       - name: Build project and run Integration tests
+        working-directory: ./rest-endpoint-application
         run: mvn clean verify
 
       - name: Build Docker images with Skaffold
+        working-directory: ./rest-endpoint-application
         uses: hiberbee/github-action-skaffold@1.20.0
         with:
           command: build
