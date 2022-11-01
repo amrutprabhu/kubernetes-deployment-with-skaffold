@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-    name: Spring Boot with graphql
+    name: Spring Boot build with Skaffold
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -31,6 +31,13 @@ jobs:
       - name: Build project and run Integration tests
         working-directory: ./rest-endpoint-application
         run: mvn clean verify
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker images with Skaffold
         uses: hiberbee/github-action-skaffold@1.24.0
