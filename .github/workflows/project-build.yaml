@@ -7,8 +7,6 @@ on:
   pull_request:
     branches:
       - '*'
-permissions: write-all
-
 
 jobs:
   verify-project-build:
@@ -30,19 +28,6 @@ jobs:
       - name: Check Maven Version
         run: mvn --version
 
-#      - name: Build project and run Integration tests
-#        working-directory: ./rest-endpoint-application
-#        run: mvn clean verify
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build Docker images with Skaffold
-        uses: hiberbee/github-action-skaffold@1.24.0
-        with:
-          command: build
-          working-directory: ./rest-endpoint-application
+      - name: Build project and run Integration tests
+        working-directory: ./rest-endpoint-application
+        run: mvn clean verify
