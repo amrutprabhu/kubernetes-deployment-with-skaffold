@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - '*'
-permissionas: write-all
+permissions: write-all
 
 
 jobs:
