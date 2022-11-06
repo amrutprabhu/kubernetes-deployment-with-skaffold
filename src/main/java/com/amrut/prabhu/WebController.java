@@ -8,6 +8,6 @@ public class WebController {
 
     @GetMapping("/")
     public String getValue() {
-        return "Yes! it works";
+        return "Yes! it works. and it is deployed to kubernetes";
     }
 }

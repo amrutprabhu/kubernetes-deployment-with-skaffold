@@ -1,0 +1,17 @@
+apiVersion: skaffold/v3
+kind: Config
+metadata:
+  name: rest-endpoint-application
+build:
+  artifacts:
+  - image: ghcr.io/amrutprabhu/skaffold-jib-image
+    jib:
+      project: com.amrut.prabhu:rest-endpoint-application
+deploy:
+  helm:
+    releases:
+    - name: rest-service
+      chartPath: rest-service
+      valuesFiles:
+      - rest-service/values.yaml
+      version: 0.1.0
