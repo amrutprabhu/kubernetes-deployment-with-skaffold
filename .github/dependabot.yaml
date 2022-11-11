@@ -1,6 +1,6 @@
 version: 2
 updates:
   - package-ecosystem: "maven"
-    directory: "rest-endpoint-application"
+    directory: "/"
     schedule:
       interval: "weekly"
